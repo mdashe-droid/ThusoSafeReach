@@ -1,0 +1,47 @@
+﻿@{
+    ViewData["Title"] = "Member Dashboard";
+}
+
+<h1>Thuso SafeReach</h1>
+<p>Your personal safety dashboard.</p>
+
+<div class="row g-3">
+    <div class="col-md-4">
+        <div class="card p-3 h-100">
+            <h5>Safety Check-ins</h5>
+            <p>Start a trip check-in and mark yourself safe.</p>
+            <a asp-controller="CheckIns" asp-action="Index"
+               class="btn btn-primary">My Check-ins</a>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card p-3 h-100">
+            <h5>Emergency SOS</h5>
+            <p>Create and review your SOS alerts.</p>
+            <a asp-controller="SOS" asp-action="Index"
+               class="btn btn-danger">SOS Alerts</a>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card p-3 h-100">
+            <h5>Report an Incident</h5>
+            <p>Record a safety incident for follow-up.</p>
+            <a asp-controller="Incidents" asp-action="Index"
+               class="btn btn-primary">Incidents</a>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card p-3 h-100">
+            <h5>Medical ID</h5>
+            <a asp-controller="Medical" asp-action="Index"
+               class="btn btn-outline-primary">My Medical ID</a>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card p-3 h-100">
+            <h5>Emergency Contacts</h5>
+            <a asp-controller="Contacts" asp-action="Index"
+               class="btn btn-outline-primary">Manage Contacts</a>
+        </div>
+    </div>
+</div>

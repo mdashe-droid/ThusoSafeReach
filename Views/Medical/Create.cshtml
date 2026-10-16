@@ -1,0 +1,30 @@
+﻿@model ThusoSafeReach.Models.MedicalProfile
+
+<h1>My Medical ID</h1>
+<p>Keep this information accurate. Only enter information you want stored.</p>
+
+<form asp-action="Save" method="post">
+    <div class="mb-3">
+        <label asp-for="Allergies" class="form-label"></label>
+        <textarea asp-for="Allergies" class="form-control"></textarea>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Medication" class="form-label"></label>
+        <textarea asp-for="Medication" class="form-control"></textarea>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="EmergencyBloodType" class="form-label">
+            Blood type (optional)
+        </label>
+        <input asp-for="EmergencyBloodType" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="MedicalNotes" class="form-label"></label>
+        <textarea asp-for="MedicalNotes" class="form-control"></textarea>
+    </div>
+
+    <button class="btn btn-primary" type="submit">Save Medical ID</button>
+</form>

@@ -1,0 +1,33 @@
+﻿@model IEnumerable<ThusoSafeReach.Models.Incident>
+
+<h1>Incident Reports</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">
+        Report an Incident
+    </a>
+</p>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Category</th>
+            <th>Description</th>
+            <th>Status</th>
+            <th>Date (UTC)</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Title</td>
+                <td>@item.Category</td>
+                <td>@item.Description</td>
+                <td>@item.Status</td>
+                <td>@item.CreatedAtUtc.ToString("g")</td>
+            </tr>
+        }
+    </tbody>
+</table>

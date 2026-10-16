@@ -1,0 +1,72 @@
+﻿@model IEnumerable<ThusoSafeReach.Models.SOSAlert>
+
+@{
+    ViewData["Title"] = "SOS Alerts";
+}
+
+<h1>SOS Alerts</h1>
+
+@if (User.IsInRole("Member"))
+{
+    <form asp-action="Create" method="post"
+          onsubmit="return confirm('Send an SOS alert?');">
+        <div class="mb-3">
+            <label for="message">Emergency message</label>
+            <input id="message" name="message"
+                   class="form-control"
+                   value="Emergency assistance requested" />
+        </div>
+        <button type="submit" class="btn btn-danger btn-lg">
+            SEND SOS
+        </button>
+    </form>
+}
+<table class="table table-striped mt-4">
+    <thead>
+        <tr>
+            <th>Alert</th>
+            <th>Created (UTC)</th>
+            <th>Status</th>
+            <th>Location</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var alert in Model)
+        {
+            <tr>
+                <td>@alert.Message</td>
+                <td>@alert.CreatedAtUtc.ToString("g")</td>
+                <td>@alert.Status</td>
+                <td>
+                    @if (alert.Latitude.HasValue &&
+                   alert.Longitude.HasValue)
+                    {
+                        <a target="_blank" rel="noopener"
+                           href="https://www.google.com/maps?q=@alert.Latitude,@alert.Longitude">
+                            View location
+                        </a>
+                    }
+                    else
+                    {
+                        <span>Not supplied</span>
+                    }
+                </td>
+                <td>
+                    @if ((User.IsInRole("Coordinator") ||
+                   User.IsInRole("Admin")) &&
+                   alert.Status != "Resolved")
+                    {
+                        <form asp-action="Resolve" method="post">
+                            <input type="hidden" name="id"
+                                   value="@alert.Id" />
+                            <button class="btn btn-success" type="submit">
+                                Resolve
+                            </button>
+                        </form>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

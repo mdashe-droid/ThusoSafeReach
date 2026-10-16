@@ -1,0 +1,71 @@
+﻿```cshtml
+@model ThusoSafeReach.Models.MedicalProfile
+
+@{
+    ViewData["Title"] = "My Medical ID";
+}
+
+<div class="container mt-4">
+    <div class="card shadow-sm">
+        <div class="card-header bg-primary text-white">
+            <h2 class="mb-0">My Medical ID</h2>
+        </div>
+
+        <div class="card-body">
+            <p class="text-muted">
+                Keep your medical information accurate for emergency situations.
+            </p>
+
+            <hr />
+
+            <div class="mb-3">
+                <h5>Allergies</h5>
+                <p>
+                    @(string.IsNullOrWhiteSpace(Model?.Allergies)
+                        ? "No allergies recorded"
+                        : Model.Allergies)
+                </p>
+            </div>
+
+            <div class="mb-3">
+                <h5>Current Medication</h5>
+                <p>
+                    @(string.IsNullOrWhiteSpace(Model?.Medication)
+                        ? "No medication recorded"
+                        : Model.Medication)
+                </p>
+            </div>
+
+            <div class="mb-3">
+                <h5>Blood Type</h5>
+                <p>
+                    @(string.IsNullOrWhiteSpace(Model?.EmergencyBloodType)
+                        ? "Not provided"
+                        : Model.EmergencyBloodType)
+                </p>
+            </div>
+
+            <div class="mb-3">
+                <h5>Medical Notes</h5>
+                <p>
+                    @(string.IsNullOrWhiteSpace(Model?.MedicalNotes)
+                        ? "No medical notes recorded"
+                        : Model.MedicalNotes)
+                </p>
+            </div>
+
+            <hr />
+
+            <a asp-action="Create" class="btn btn-primary">
+                Add Medical Information
+            </a>
+
+            <a asp-controller="Dashboard"
+               asp-action="Index"
+               class="btn btn-outline-secondary ms-2">
+                Back to Dashboard
+            </a>
+        </div>
+    </div>
+</div>
+```</Writing

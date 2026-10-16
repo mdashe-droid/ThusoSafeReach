@@ -1,0 +1,29 @@
+﻿@model IEnumerable<ThusoSafeReach.Models.EmergencyContact>
+
+<h1>Emergency Contacts</h1>
+
+<a asp-action="Create" class="btn btn-primary">Add Contact</a>
+
+<table class="table mt-3">
+    <thead>
+        <tr><th>Name</th><th>Phone</th><th>Relationship</th><th></th></tr>
+    </thead>
+    <tbody>
+        @foreach (var contact in Model)
+        {
+            <tr>
+                <td>@contact.Name</td>
+                <td>@contact.PhoneNumber</td>
+                <td>@contact.Relationship</td>
+                <td>
+                    <form asp-action="Delete" method="post">
+                        <input type="hidden" name="id" value="@contact.Id" />
+                        <button class="btn btn-danger btn-sm" type="submit">
+                            Delete
+                        </button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+<
