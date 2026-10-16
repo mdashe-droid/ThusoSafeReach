@@ -1,0 +1,183 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+
+/* ==============================
+   THUSO SAFEREACH - GLOBAL THEME
+   ============================== */
+
+:root {
+    --safe-navy: #14243a;
+    --safe-navy-light: #203954;
+    --safe-teal: #159a91;
+    --safe-teal-hover: #117d76;
+    --safe-background: #f1f5f9;
+    --safe-white: #ffffff;
+    --safe-text: #243247;
+    --safe-muted: #718096;
+    --safe-border: #dce4ed;
+}
+
+/* Main page background */
+body {
+    background-color: var(--safe-background);
+    color: var(--safe-text);
+    font-family: "Segoe UI", Arial, sans-serif;
+    min-height: 100vh;
+    margin: 0;
+}
+
+/* Main content */
+.container {
+    color: var(--safe-text);
+}
+
+/* Navigation bar */
+.navbar {
+    background-color: var(--safe-navy) !important;
+    box-shadow: 0 3px 12px rgba(20, 36, 58, 0.12);
+}
+
+    .navbar .navbar-brand,
+    .navbar .nav-link {
+        color: var(--safe-white) !important;
+    }
+
+        .navbar .nav-link:hover,
+        .navbar .nav-link:focus {
+            color: #75ddd4 !important;
+        }
+
+    .navbar .navbar-brand {
+        font-weight: 700;
+        letter-spacing: 0.3px;
+    }
+
+/* Cards */
+.card {
+    background-color: var(--safe-white);
+    border: 1px solid var(--safe-border);
+    border-radius: 14px;
+    box-shadow: 0 6px 24px rgba(20, 36, 58, 0.07);
+}
+
+.card-header {
+    border-radius: 14px 14px 0 0 !important;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5 {
+    color: var(--safe-navy);
+    font-weight: 650;
+}
+
+/* Primary buttons */
+.btn-primary {
+    background-color: var(--safe-navy);
+    border-color: var(--safe-navy);
+    border-radius: 8px;
+    padding: 10px 18px;
+    font-weight: 600;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+    .btn-primary:hover,
+    .btn-primary:focus {
+        background-color: var(--safe-navy-light);
+        border-color: var(--safe-navy-light);
+        transform: translateY(-1px);
+    }
+
+/* Teal buttons for secondary safety actions */
+.btn-teal {
+    background-color: var(--safe-teal);
+    border-color: var(--safe-teal);
+    color: white;
+    border-radius: 8px;
+    font-weight: 600;
+}
+
+    .btn-teal:hover,
+    .btn-teal:focus {
+        background-color: var(--safe-teal-hover);
+        border-color: var(--safe-teal-hover);
+        color: white;
+    }
+
+/* Form fields */
+.form-control,
+.form-select {
+    border: 1px solid var(--safe-border);
+    border-radius: 8px;
+    padding: 10px 12px;
+    background-color: white;
+}
+
+    .form-control:focus,
+    .form-select:focus {
+        border-color: var(--safe-teal);
+        box-shadow: 0 0 0 0.2rem rgba(21, 154, 145, 0.15);
+    }
+
+/* Labels */
+.form-label {
+    color: var(--safe-navy);
+    font-weight: 600;
+}
+
+/* Tables */
+.table {
+    color: var(--safe-text);
+}
+
+    .table thead th {
+        background-color: #e8eef5;
+        color: var(--safe-navy);
+        border-bottom: 2px solid var(--safe-border);
+    }
+
+/* Alerts */
+.alert {
+    border-radius: 10px;
+}
+
+/* Footer */
+footer,
+.footer {
+    color: var(--safe-muted);
+}
+
+/* Links */
+a {
+    color: var(--safe-teal);
+}
+
+    a:hover {
+        color: var(--safe-teal-hover);
+    }
+
+/* Page content spacing */
+main {
+    padding-top: 24px;
+    padding-bottom: 32px;
+}

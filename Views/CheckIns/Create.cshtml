@@ -1,0 +1,28 @@
+﻿@{
+    ViewData["Title"] = "Start Check-in";
+}
+
+<h1>Start a Safety Check-in</h1>
+
+<form asp-action="Create" method="post">
+    <div class="mb-3">
+        <label for="destination" class="form-label">Destination</label>
+        <input id="destination" name="destination"
+               class="form-control" maxlength="150" required />
+    </div>
+    <div class="mb-3">
+        <label for="durationMinutes" class="form-label">
+            Check-in deadline
+        </label>
+        <select id="durationMinutes" name="durationMinutes"
+                class="form-select">
+            <option value="15">15 minutes</option>
+            <option value="30">30 minutes</option>
+            <option value="60">1 hour</option>
+            <option value="120">2 hours</option>
+        </select>
+    </div>
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <button type="submit" class="btn btn-primary">Start</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+</form>
