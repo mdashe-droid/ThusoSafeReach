@@ -1,0 +1,46 @@
+﻿@model IEnumerable<ThusoSafeReach.Models.CheckIn>
+
+@{
+    ViewData["Title"] = "My Safety Check-ins";
+}
+
+<h1>My Safety Check-ins</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">
+        Start a Check-in
+    </a>
+</p>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Destination</th>
+            <th>Created (UTC)</th>
+            <th>Deadline (UTC)</th>
+            <th>Status</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Destination</td>
+                <td>@item.CreatedAtUtc.ToString("g")</td>
+                <td>@item.DueAtUtc.ToString("g")</td>
+                <td>@item.Status</td>
+                <td>
+                    @if (item.Status == "Active")
+                    {
+                        <form asp-action="Complete" method="post">
+                            <input type="hidden" name="id" value="@item.Id" />
+                            <button class="btn btn-success" type="submit">
+                                I'm safe
+                            </button>
+                        </form>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
